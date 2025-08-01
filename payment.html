@@ -1,0 +1,150 @@
+<!DOCTYPE html><html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ravvex Payment & Produk</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0a0000;
+      color: #ff4d4d;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      flex-direction: column;
+    }.card {
+  width: 90%;
+  max-width: 420px;
+  background: #1a0000;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  color: #ff3333;
+  margin-bottom: 1.5rem;
+}
+
+.thumb {
+  background: #2a0000;
+  height: 150px;
+  margin: 0 auto 1.5rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ff6666;
+  font-size: 14px;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  background: #ff1a1a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #cc0000;
+}
+
+.info {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 14px;
+}
+
+.modal, .overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  text-align: center;
+  padding: 1rem;
+}
+
+.modal-content {
+  background: #2b0000;
+  padding: 1.5rem;
+  border-radius: 12px;
+  color: #ffb3b3;
+  max-width: 90%;
+  box-shadow: 0 0 15px #ff4d4d;
+}
+
+.close-btn {
+  margin-top: 1rem;
+  background: #ff4d4d;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+  </style>
+</head>
+<body>  <div class="card">
+    <div class="title">RAVVEX PAYMENT & PRODUK</div>
+    <div class="thumb">[ Hay Di Sini Website Resmi Tolong Di Baca Yah Kon*tol yakali udah besar dongo sih klw mau order tolong baca informasi terlebih dahulu ]</div><button class="btn" onclick="showQRIS()">🔻 Tampilkan QRIS</button>
+<button class="btn" onclick="goWA()">📲 Dana / Gopay: 083854600302</button>
+
+<div class="info">A.N: <strong>SAMINEM</strong></div>
+<div class="info">TIKTOK : tokyohosting2</div>
+
+<button class="btn" onclick="showInfo('Script Bot Via Telegram', 'Bot Telegram [ NIRVANA NOCTURNE 25 NO UP 50 FREE UP ], [ SCRIPT DARKNESS NO UP 55K FULL UP 80K RESSELLER 100K PARTNER 150K ] ')">🤖 Script Bot Telegram - 25-150K</button>
+<button class="btn" onclick="showInfo('Jasa Bug - Kenon Wa', 'Jasa Bug 15k Efek ? [ CRASH - DELAY - FORCLOSE BERTAHAN 1-2 JAM ], KENON WA SPAM 25K [BERTAHAN 6 JAM] KENON WA PERMANEN 50K [BERTAHAN 1BULAN]')">🔥 Jasa Bug & Jasa Kenon - 15K-50K</button>
+<button class="btn" onclick="showInfo('MurBan & Murbug Wa', 'Keuntungwn Murban / Murbug Bisa Melakukan Sepuasnya [Bisa band orang sepuasnya] [bisa bug sepuasnya] [HARGA MURBAN 30K] [ HARGA MURBUG BIASA 35K VVIP 50K ] NOTE : VVIP MURBUG BISA OPEN MURBUG SEPUASNYA')">👑 MurBan & MurBug - 35-50K</button>
+<button class="btn" onclick="showInfo('Informasi', 'Jika Anda Sudah Tf tolong pencet mmor dana [otomatis di arahkan langsung ke whatsap admin] jika anda belum tf tapi chet admin ? Otomatis Wa lu ke banned')">🧨 Informasi - Baca Agar Tidak Ke Banned</button>
+
+  </div>  <!-- QRIS Modal -->  <div class="overlay" id="qrisModal">
+    <div class="modal-content">
+      <img src="https://files.catbox.moe/csniro.jpg" alt="jpg" style="max-width: 100%; border-radius: 10px;">
+      <button class="close-btn" onclick="closeQRIS()">Tutup</button>
+    </div>
+  </div>  <!-- Product Info Modal -->  <div class="overlay" id="infoModal">
+    <div class="modal-content" id="infoText"></div>
+    <button class="close-btn" onclick="closeInfo()">Tutup</button>
+  </div>  <script>
+    function goWA() {
+      const phone = "6285792797740";
+      const message = encodeURIComponent("Halo kak, saya sudah tf bukti transfer masih loading pengiriman ke Rava, Nmor korban : ( isi nmor yg mau di proses )");
+      window.location.href = `https://wa.me/${phone}?text=${message}`;
+    }
+
+    function showQRIS() {
+      document.getElementById("qrisModal").style.display = "flex";
+    }
+
+    function closeQRIS() {
+      document.getElementById("qrisModal").style.display = "none";
+    }
+
+    function showInfo(title, description) {
+      const content = `<h3>${title}</h3><p>${description}</p>`;
+      document.getElementById("infoText").innerHTML = content;
+      document.getElementById("infoModal").style.display = "flex";
+    }
+
+    function closeInfo() {
+      document.getElementById("infoModal").style.display = "none";
+    }
+  </script></body>
+</html>
